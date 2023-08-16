@@ -1,5 +1,4 @@
-
-
+// Initialize chart
 var dom = document.getElementById('chart-container');
 var myChart = echarts.init(dom, 'dark', {
   renderer: 'canvas',
@@ -99,12 +98,14 @@ const labelOption = {
     name: {}
   }
 };
-option = {
-  tooltip: {
-    trigger: 'axis',
-    axisPointer: {
-      type: 'shadow'
-    }
+
+// Create an array to store selected categories from the second dropdown
+let selectedCategories = [];
+
+// Define initial options
+let options = {
+  xAxis: {
+    data: ["Automobiles"] // Initial empty data
   },
   legend: {
     data: ['Total', 'Positive', 'Neutral', 'Negative']
@@ -122,13 +123,6 @@ option = {
       saveAsImage: { show: true }
     }
   },
-  xAxis: [
-    {
-      type: 'category',
-      axisTick: { show: true },
-    //   data: ['2012', '2013', '2014', '2015', '2016']
-    }
-  ],
   yAxis: [
     {
       type: 'value'
@@ -143,7 +137,7 @@ option = {
       emphasis: {
         focus: 'series'
       },
-      data: [320, 332, 301, 334, 390] /* ADD REAL DATA */
+      data: [] // Initial empty data
     },
     {
       name: 'Positive',
@@ -152,7 +146,7 @@ option = {
       emphasis: {
         focus: 'series'
       },
-      data: [220, 182, 191, 234, 290] /* ADD REAL DATA */
+      data: [] // Initial empty data
     },
     {
       name: 'Neutral',
@@ -161,7 +155,7 @@ option = {
       emphasis: {
         focus: 'series'
       },
-      data: [150, 232, 201, 154, 190] /* ADD REAL DATA */
+      data: [] // Initial empty data
     },
     {
       name: 'Negative',
@@ -170,30 +164,184 @@ option = {
       emphasis: {
         focus: 'series'
       },
-      data: [98, 77, 101, 99, 40] /* ADD REAL DATA */
+      data: [] // Initial empty data
     }
   ]
 };
 
-
-if (option && typeof option === 'object') {
-  myChart.setOption(option);
+// Set initial chart options
+if (options && typeof options === 'object') {
+  myChart.setOption(options);
 }
 
+// Get page dropdown
+const pageSelect = document.getElementById('selCategory');
+
+// Handle page dropdown change
+pageSelect.addEventListener('change', () => {
+  // Clear selectedCategories array
+  selectedCategories = [];
+
+  // Get selected category from page dropdown
+  const selectedCategory = pageSelect.value;
+
+  // Update xAxis data
+  options.xAxis.data = [selectedCategory];
+
+  // Clear existing series data and create series for selected category
+  options.series = [
+    {
+      name: 'Total',
+      type: 'bar',
+      label: labelOption,
+      emphasis: {
+        focus: 'series'
+      },
+      data: [] // Initial empty data
+    },
+    {
+      name: 'Positive',
+      type: 'bar',
+      label: labelOption,
+      emphasis: {
+        focus: 'series'
+      },
+      data: [] // Initial empty data
+    },
+    {
+      name: 'Neutral',
+      type: 'bar',
+      label: labelOption,
+      emphasis: {
+        focus: 'series'
+      },
+      data: [] // Initial empty data
+    },
+    {
+      name: 'Negative',
+      type: 'bar',
+      label: labelOption,
+      emphasis: {
+        focus: 'series'
+      },
+      data: [] // Initial empty data
+    },
+    {
+      name: selectedCategory,
+      type: 'bar',
+      label: labelOption,
+      emphasis: {
+        focus: 'series'
+      },
+      data: [] // Initial empty data
+    }
+  ];
+
+  // Update chart
+  myChart.setOption(options);
+});
+
+// Get smaller dropdown element
+const smallerCategoriesSelect = document.getElementById('categories');
+
+// Handle smaller categories dropdown change
+smallerCategoriesSelect.addEventListener('change', () => {
+  // Get selected side-by-side categories from smaller categories dropdown
+  const selectedSideBySide = Array.from(smallerCategoriesSelect.selectedOptions, option => option.value);
+
+  // Get selected main category from main category dropdown
+  const selectedMainCategory = pageSelect.value;
+
+  // Update chart with selected main and side-by-side categories
+  updateChart(selectedMainCategory, selectedSideBySide);
+});
+
+// Handle window resize
 window.addEventListener('resize', myChart.resize);
 
-// Get dropdown element
-const select = document.getElementById('categories');
+// Define the updateChart function
+function updateChart(mainCategory, sideBySideCategories) {
+  console.log('Updating chart with main category:', mainCategory);
+  console.log('Updating chart with side-by-side categories:', sideBySideCategories);
+  // Clear selectedCategories array
+  selectedCategories = [];
 
-// Update chart on change
-select.addEventListener('change', () => {
-  // Get selected value
-  const selected = select.value;
-  
-  // Update categories
-  myChart.setOption({
-    xAxis: {
-      data: [selected] 
+  // Clear existing series data for previous main category
+  options.series = options.series.slice(0, 4); // Keep only the first four series
+
+  // Update xAxis data
+  options.xAxis.data = [mainCategory];
+
+  // Clear existing series data and create series for selected category
+  options.series = [
+    {
+      name: 'Total',
+      type: 'bar',
+      label: labelOption,
+      emphasis: {
+        focus: 'series'
+      },
+      data: [] // Initial empty data
+    },
+    {
+      name: 'Positive',
+      type: 'bar',
+      label: labelOption,
+      emphasis: {
+        focus: 'series'
+      },
+      data: [] // Initial empty data
+    },
+    {
+      name: 'Neutral',
+      type: 'bar',
+      label: labelOption,
+      emphasis: {
+        focus: 'series'
+      },
+      data: [] // Initial empty data
+    },
+    {
+      name: 'Negative',
+      type: 'bar',
+      label: labelOption,
+      emphasis: {
+        focus: 'series'
+      },
+      data: [] // Initial empty data
+    },
+    {
+      name: mainCategory,
+      type: 'bar',
+      label: labelOption,
+      emphasis: {
+        focus: 'series'
+      },
+      data: [] // Initial empty data
     }
+  ];
+
+  // Update legend data
+  options.legend.data = ['Total', 'Positive', 'Neutral', 'Negative'];
+
+  // Add side-by-side categories to selectedCategories array
+  selectedCategories.push(...sideBySideCategories);
+
+  console.log('Selected categories array:', selectedCategories);
+
+  // Add new series for selected categories
+  selectedCategories.forEach((category) => {
+    options.series.push({
+      name: category,
+      type: 'bar',
+      label: labelOption,
+      emphasis: {
+        focus: 'series'
+      },
+      data: [] // Initial empty data
+    });
   });
-});
+
+  // Update chart
+  myChart.setOption(options);
+}

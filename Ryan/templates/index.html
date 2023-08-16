@@ -9,9 +9,15 @@
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
             integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
             crossorigin="" />
+        
+        <!-- W3Schools CSS -->
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.16/css/bootstrap-multiselect.css">
 
         <!-- Our CSS -->
         <!-- <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/style.css') }}"> -->
@@ -40,13 +46,24 @@
                 <!-- Dropdown Menu by Category-->
                 <div class="dropdown">
                     <select id="selCategory">
-                        {% for x in data[1] %} <!-- COMPLETE THIS DATA WITH FLASK-->
-                        <option value="{{ x }}">{{ x }}</option>
-                        {% endfor %}
+                        <option value="Automobiles">Automobiles</option>
+                        <option value="Comedy">Comedy</option>
+                        <option value="Entertainment">Entertainment</option>
+                        <option value="Film">Film</option>
+                        <option value="News and Politics">News and Politics</option>
+                        <option value="Gaming">Gaming</option>
+                        <option value="Science and Technology">Science and Technology</option>
+                        <option value="Shows">Shows</option>
+                        <option value="Sports">Sports</option>
+                        <option value="Pets and Animals">Pets and Animals</option>
+                        <option value="Music">Music</option>
+                        <option value="Travel">Travel</option>
+                        <option value="Problematic">Problematic</option>
+                        <option value="LGBTQ+">LGBTQ+</option>
                     </select>
                 </div>
             </div>
-
+            <hr>
             <!-- Creator Breakdown -->
             <div class="panel panel-primary">
                 <div class="panel-heading">
@@ -64,11 +81,9 @@
                         <img src="         " alt="Wordcloud"> <!--FILL IN IMAGE PATH-->
                     </div>
                 </div>
-
             <!-- Div for Sentiment Analysis Table -->
-            
                 <div id="sentiTab" class="col-md-6">
-                    <select id="categories">
+                    <select id="categories" multiple>
                         <option value="Automobiles">Automobiles</option>
                         <option value="Comedy">Comedy</option>
                         <option value="Entertainment">Entertainment</option>
@@ -85,7 +100,6 @@
                         <option value="LGBTQ+">LGBTQ+</option>
                     </select>
                     <div id="chart-container"></div>
-                    <h2>Sentiment Analysis Table</h2>
                     <script src="https://fastly.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>    <!--FINISH DEVELOPING TABLE FRAMEWORK AND ASK FOR SPECIFIC COLUMNS-->
                 </div>
             </div>
@@ -102,6 +116,16 @@
                 </div>
             </div>
         </div>
+        <footer class="w3-container w3-theme-dark w3-padding-16">
+            <h3>Thank You for Visiting!</h3>
+            <div style="position:relative;bottom:50px;" class="w3-tooltip w3-right">
+                <span class="w3-text w3-theme-dark w3-padding">To Top</span>    
+                <a class="w3-text-white" href="#home"><span class="w3-xlarge">
+                <i class="fa fa-chevron-circle-up"></i></span></a>
+            </div>
+        </footer>
         <script type="text/javascript" src="../static/js/logic.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.16/js/bootstrap-multiselect.min.js"></script>
     </body>
 </html>
