@@ -94,6 +94,34 @@ body {
 #categories {
     margin: 10px;
 }
+
+#toTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.to-top-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 3.2px;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    transition: background-color 0.3s;
+    text-align: center;
+    line-height: 20px;
+}
+
+.to-top-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+
 /* Responsive media queries */
 @media (max-width: 768px) {
     /* Adjust styles for smaller screens */

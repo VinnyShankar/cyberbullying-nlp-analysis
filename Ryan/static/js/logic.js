@@ -241,19 +241,23 @@ pageSelect.addEventListener('change', () => {
   myChart.setOption(options);
 });
 
-// Get smaller dropdown element
-const smallerCategoriesSelect = document.getElementById('categories');
+// Get smaller categories checkboxes
+const smallerCategoriesCheckboxes = document.querySelectorAll('#categories input[type="checkbox"]');
 
-// Handle smaller categories dropdown change
-smallerCategoriesSelect.addEventListener('change', () => {
-  // Get selected side-by-side categories from smaller categories dropdown
-  const selectedSideBySide = Array.from(smallerCategoriesSelect.selectedOptions, option => option.value);
+// Handle smaller categories checkboxes change
+smallerCategoriesCheckboxes.forEach((checkbox) => {
+  checkbox.addEventListener('change', () => {
+    // Get selected side-by-side categories from checkboxes
+    const selectedSideBySide = Array.from(smallerCategoriesCheckboxes)
+      .filter(checkbox => checkbox.checked)
+      .map(checkbox => checkbox.value);
 
-  // Get selected main category from main category dropdown
-  const selectedMainCategory = pageSelect.value;
+    // Get selected main category from main category dropdown
+    const selectedMainCategory = pageSelect.value;
 
-  // Update chart with selected main and side-by-side categories
-  updateChart(selectedMainCategory, selectedSideBySide);
+    // Update chart with selected main and side-by-side categories
+    updateChart(selectedMainCategory, selectedSideBySide);
+  });
 });
 
 // Handle window resize
@@ -261,8 +265,6 @@ window.addEventListener('resize', myChart.resize);
 
 // Define the updateChart function
 function updateChart(mainCategory, sideBySideCategories) {
-  console.log('Updating chart with main category:', mainCategory);
-  console.log('Updating chart with side-by-side categories:', sideBySideCategories);
   // Clear selectedCategories array
   selectedCategories = [];
 
@@ -270,9 +272,9 @@ function updateChart(mainCategory, sideBySideCategories) {
   options.series = options.series.slice(0, 4); // Keep only the first four series
 
   // Update xAxis data
-  options.xAxis.data = [mainCategory];
+  options.xAxis.data = [mainCategory, ...sideBySideCategories];
 
-  // Clear existing series data and create series for selected category
+  // Clear existing series data and create series for selected categories
   options.series = [
     {
       name: 'Total',
@@ -327,8 +329,6 @@ function updateChart(mainCategory, sideBySideCategories) {
   // Add side-by-side categories to selectedCategories array
   selectedCategories.push(...sideBySideCategories);
 
-  console.log('Selected categories array:', selectedCategories);
-
   // Add new series for selected categories
   selectedCategories.forEach((category) => {
     options.series.push({
@@ -345,3 +345,18 @@ function updateChart(mainCategory, sideBySideCategories) {
   // Update chart
   myChart.setOption(options);
 }
+
+// Get the "To Top" button element
+const toTopButton = document.getElementById('toTop');
+
+// Add a scroll event listener to the window
+window.addEventListener('scroll', () => {
+    // If the user has scrolled down at least 200 pixels, show the button
+    if (window.scrollY >= 200) {
+        toTopButton.style.display = 'block';
+    } else {
+        toTopButton.style.display = 'none';
+    }
+});
+
+

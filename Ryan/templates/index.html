@@ -81,31 +81,32 @@
                         <img src="         " alt="Wordcloud"> <!--FILL IN IMAGE PATH-->
                     </div>
                 </div>
-            <!-- </div> -->
+            </div>
+            <hr>
             <!-- Div for Sentiment Analysis Table -->
-             <!-- </div> -->
-                <div id="sentiTab" class="col-md-6">
-                    <select id="categories" multiple>
-                        <option value="Automobiles">Automobiles</option>
-                        <option value="Comedy">Comedy</option>
-                        <option value="Entertainment">Entertainment</option>
-                        <option value="Film">Film</option>
-                        <option value="News and Politics">News and Politics</option>
-                        <option value="Gaming">Gaming</option>
-                        <option value="Science and Technology">Science and Technology</option>
-                        <option value="Shows">Shows</option>
-                        <option value="Sports">Sports</option>
-                        <option value="Pets and Animals">Pets and Animals</option>
-                        <option value="Music">Music</option>
-                        <option value="Travel">Travel</option>
-                        <option value="Problematic">Problematic</option>
-                        <option value="LGBTQ+">LGBTQ+</option>
-                    </select>
+            <div>
+                <div id="sentiTab" class="col-md-12">
+                    <div class="dropdown" id="categories">
+                        <label><input type="checkbox" value="Automobiles">Automobiles</label>
+                        <label><input type="checkbox" value="Comedy">Comedy</label>
+                        <label><input type="checkbox" value="Entertainment">Entertainment</label>
+                        <label><input type="checkbox" value="Film">Film</label>
+                        <label><input type="checkbox" value="News and Politics">News and Politics</label>
+                        <label><input type="checkbox" value="Gaming">Gaming</label>
+                        <label><input type="checkbox" value="Science and Technology">Science and Technology</label>
+                        <label><input type="checkbox" value="Shows">Shows</label>
+                        <label><input type="checkbox" value="Sports">Sports</label>
+                        <label><input type="checkbox" value="Pets and Animals">Pets and Animals</label>
+                        <label><input type="checkbox" value="Music">Music</label>
+                        <label><input type="checkbox" value="Travel">Travel</label>
+                        <label><input type="checkbox" value="Problematic">Problematic</label>
+                        <label><input type="checkbox" value="LGBTQ+">LGBTQ+</label>
+                    </div>
                     <div id="chart-container"></div>
                     <script src="https://fastly.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>    <!--FINISH DEVELOPING TABLE FRAMEWORK AND ASK FOR SPECIFIC COLUMNS-->
                 </div>
             </div>
-            
+            <hr>
             <!-- Bigram and Trigram Charts -->
             <div class="row" id="grams">
                 <div class="col-md-6">
@@ -118,10 +119,10 @@
                 </div>
             </div>
         </div>
+        <br>
         <footer class="w3-container w3-theme-dark w3-padding-16">
             <h3>Thank You for Visiting!</h3>
-            <div style="position:relative;bottom:50px;" class="w3-tooltip w3-right">
-                <span class="w3-text w3-theme-dark w3-padding">To Top</span>    
+            <div id="toTop" class="to-top-button">
                 <a class="w3-text-white" href="#home"><span class="w3-xlarge">
                 <i class="fa fa-chevron-circle-up"></i></span></a>
             </div>
