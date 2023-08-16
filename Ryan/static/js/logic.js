@@ -126,7 +126,7 @@ option = {
     {
       type: 'category',
       axisTick: { show: true },
-      data: ['2012', '2013', '2014', '2015', '2016']
+    //   data: ['2012', '2013', '2014', '2015', '2016']
     }
   ],
   yAxis: [
@@ -181,3 +181,19 @@ if (option && typeof option === 'object') {
 }
 
 window.addEventListener('resize', myChart.resize);
+
+// Get dropdown element
+const select = document.getElementById('categories');
+
+// Update chart on change
+select.addEventListener('change', () => {
+  // Get selected value
+  const selected = select.value;
+  
+  // Update categories
+  myChart.setOption({
+    xAxis: {
+      data: [selected] 
+    }
+  });
+});

@@ -85,8 +85,15 @@ body {
     position: relative;
     height: 100vh;
     overflow: hidden;
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid #e2e3e5;
+    border-radius: 5px;
   }
-  
+
+#categories {
+    margin: 10px;
+}
 /* Responsive media queries */
 @media (max-width: 768px) {
     /* Adjust styles for smaller screens */

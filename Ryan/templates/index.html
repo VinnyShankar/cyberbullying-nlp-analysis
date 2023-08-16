@@ -56,34 +56,35 @@
             </div>
 
             <!-- Div for Wordcloud -->
-            <div class="row" id="wordCloud">
-                <div class="box">
-                    <h2>Wordcloud</h2>
-                    <h6>Frequency of most commonly commented words</h1>
-                    <img src="         " alt="Wordcloud"> <!--FILL IN IMAGE PATH-->
+            <div class="row">
+                <div id="wordCloud" class="col-md-6">
+                    <div class="box">
+                        <h2>Wordcloud</h2>
+                        <h6>Frequency of most commonly commented words</h1>
+                        <img src="         " alt="Wordcloud"> <!--FILL IN IMAGE PATH-->
+                    </div>
                 </div>
-            </div>
 
             <!-- Div for Sentiment Analysis Table -->
-            <div class= "row" id="sentiTab"> 
-                <div class="col-md-5">
+            
+                <div id="sentiTab" class="col-md-6">
+                    <select id="categories">
+                        <option value="Automobiles">Automobiles</option>
+                        <option value="Comedy">Comedy</option>
+                        <option value="Entertainment">Entertainment</option>
+                        <option value="Film">Film</option>
+                        <option value="News and Politics">News and Politics</option>
+                        <option value="Gaming">Gaming</option>
+                        <option value="Science and Technology">Science and Technology</option>
+                        <option value="Shows">Shows</option>
+                        <option value="Sports">Sports</option>
+                        <option value="Pets and Animals">Pets and Animals</option>
+                        <option value="Music">Music</option>
+                        <option value="Travel">Travel</option>
+                        <option value="Problematic">Problematic</option>
+                        <option value="LGBTQ+">LGBTQ+</option>
+                    </select>
                     <div id="chart-container"></div>
-                        <select id="categories">
-                            <option value="category1">Automobiles</option>
-                            <option value="category2">Comedy</option>
-                            <option value="category3">Entertainment</option>
-                            <option value="category4">Film</option>
-                            <option value="category5">News and Politics</option>
-                            <option value="category6">Gaming</option>
-                            <option value="category7">Science and Technology</option>
-                            <option value="category8">Shows</option>
-                            <option value="category9">Sports</option>
-                            <option value="category10">Pets and Animals</option>
-                            <option value="category11">Music</option>
-                            <option value="category12">Travel</option>
-                            <option value="category13">Problematic</option>
-                            <option value="category14">LGBTQ+</option>
-                        </select>
                     <h2>Sentiment Analysis Table</h2>
                     <script src="https://fastly.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>    <!--FINISH DEVELOPING TABLE FRAMEWORK AND ASK FOR SPECIFIC COLUMNS-->
                 </div>
