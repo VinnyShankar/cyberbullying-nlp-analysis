@@ -107,7 +107,7 @@ option = {
     }
   },
   legend: {
-    data: ['Forest', 'Steppe', 'Desert', 'Wetland']
+    data: ['Total', 'Positive', 'Neutral', 'Negative']
   },
   toolbox: {
     show: true,
@@ -136,41 +136,41 @@ option = {
   ],
   series: [
     {
-      name: 'Forest',
+      name: 'Total',
       type: 'bar',
       barGap: 0,
       label: labelOption,
       emphasis: {
         focus: 'series'
       },
-      data: [320, 332, 301, 334, 390]
+      data: [320, 332, 301, 334, 390] /* ADD REAL DATA */
     },
     {
-      name: 'Steppe',
+      name: 'Positive',
       type: 'bar',
       label: labelOption,
       emphasis: {
         focus: 'series'
       },
-      data: [220, 182, 191, 234, 290]
+      data: [220, 182, 191, 234, 290] /* ADD REAL DATA */
     },
     {
-      name: 'Desert',
+      name: 'Neutral',
       type: 'bar',
       label: labelOption,
       emphasis: {
         focus: 'series'
       },
-      data: [150, 232, 201, 154, 190]
+      data: [150, 232, 201, 154, 190] /* ADD REAL DATA */
     },
     {
-      name: 'Wetland',
+      name: 'Negative',
       type: 'bar',
       label: labelOption,
       emphasis: {
         focus: 'series'
       },
-      data: [98, 77, 101, 99, 40]
+      data: [98, 77, 101, 99, 40] /* ADD REAL DATA */
     }
   ]
 };
