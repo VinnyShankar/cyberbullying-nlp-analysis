@@ -7,11 +7,12 @@ body {
 
 /* Style the navigation bar */
 .topnav {
-    background-color: #8fe38f; 
+    background-color: transparent; 
     overflow: hidden;
     display: flex;
     justify-content: center;
     text-align: center;
+    margin-bottom: 50px;
 }
 
 .topnav a {
@@ -24,21 +25,38 @@ body {
 }
 
 .topnav a:hover { 
-    color: #c3f0ee;
+    color: #d5f632;
+    /* animation: animatedGradient 5s linear infinite; */
 }
 
 .jumbotron-fluid {
     /* background-color: #f8f9fa; */
-    padding: 60px 0; /* Adjust the top and bottom padding as needed */
-    margin: 0; /* Remove any margin to ensure full width */
+    padding: 20px 0; /* Adjust the top and bottom padding as needed */
+    padding-bottom: 98px; /* Remove any margin to ensure full width */
+}
+
+.jumbotron-fluid topnav {
+    padding: 100px;
 }
 
 /* Style the dropdown */
 .dropdown {
-    margin-top: 10px;
     text-align: center;
-    font-size: 15px;
+    font-size: 12px;
     color:rgba(0, 0, 0, 0.5)
+}
+
+.container h1 {
+    font-size: 52px;
+}
+
+.container h2 {
+    font-size: 22px;
+    margin-bottom: 30px;
+}
+
+.container h6 {
+    font-size: 12px;
 }
 
 /* Style the checkboxes */
@@ -160,7 +178,7 @@ body {
 
 /* Apply the animation to the jumbotron */
 .animated-background {
-    animation: animatedGradient 18s ease infinite;
+    animation: animatedGradient 10s ease infinite;
     background: linear-gradient(45deg, #6d64a7, #9b5699, #c1658e, #f59187);
     background-size: 400% 400%;
 }
