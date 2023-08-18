@@ -31,17 +31,6 @@ def get_from_mongo():
 
 
 #################################################
-# Database Setup
-#################################################
-# engine = create_engine(f"postgresql+psycopg2://postgres:{postgres_key}@localhost/{db_name}")
-# Connect to MongoDB and return health.mortality collection
-# def get_from_mongo():
-#     client = MongoClient(port=27017)
-#     db = client.health
-#     mortality = db.mortality
-#     return mortality
-
-#################################################
 # Flask Setup
 #################################################
 app = Flask(__name__)

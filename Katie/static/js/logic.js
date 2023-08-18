@@ -245,6 +245,7 @@ option = {
   },
   xAxis: {
     type: 'category',
+    name: 'Category',
     boundaryGap: true,
     nameGap: 30,
     splitArea: {
