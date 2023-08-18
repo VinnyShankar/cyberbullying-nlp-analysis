@@ -26,7 +26,7 @@ from bson.json_util import dumps
 def get_from_mongo():
     client = MongoClient(port=27017)
     db = client.project4
-    comments = db.youtube_comments
+    comments = db.youtube
     return comments
 
 
@@ -54,12 +54,8 @@ def barchart():
     query = {}
     fields = {
         "_id": 0,
-        "comment": 0,
-        "channel": 0,
-        "video_url": 0,
-        "video_id": 0,
-        "expanded_text": 0,
-        "processed_text": 0
+        "category": 1,
+        "score": 1
     }
     result = get_from_mongo().find(query,fields)
 
