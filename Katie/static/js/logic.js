@@ -244,6 +244,15 @@ option = {
     bottom: '15%'
   },
   xAxis: {
+    type: 'value',
+    name: 'Score',
+    min: -10,
+    max: 250,
+    splitArea: {
+      show: false
+    }
+  },
+  yAxis: {
     type: 'category',
     name: 'Category',
     boundaryGap: true,
@@ -252,15 +261,6 @@ option = {
       show: true
     },
     splitLine: {
-      show: false
-    }
-  },
-  yAxis: {
-    type: 'value',
-    name: 'Score',
-    min: -10,
-    max: 250,
-    splitArea: {
       show: false
     }
   },
