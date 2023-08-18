@@ -51,13 +51,17 @@ def welcome():
 # Bar Chart API Route
 @app.route("/api/v1.0/barchart")
 def barchart():
-    query = {}
+    query = get_from_mongo().aggregate([{ "$group": { "_id": { "category": "$category", "score": "$score" },
+             "count": { "$sum": 1 } } }])
+    
+    query2 = get_from_mongo().aggregate([{ "$group": {"_id": "$category", "count": { '$sum': 1 }}}])
+
     fields = {
         "_id": 0,
         "category": 1,
         "score": 1
     }
-    result = get_from_mongo().find(query,fields)
+    result = (query,query2,fields)
 
     return dumps(result)
 
