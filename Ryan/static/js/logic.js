@@ -343,19 +343,28 @@ function updateChart(mainCategory, sideBySideCategories) {
     checkbox.checked = selectedCategories.includes(checkbox.value);
   });
 
-  // Add new series for selected categories
-  selectedCategories.forEach((category) => {
-    options.series.push({
-      name: category,
-      type: 'bar',
-      label: labelOption,
-      emphasis: {
-        focus: 'series'
-      },
-      data: [] // Initial empty data
-    });
-  });
+  // Fetch data from Flask route using AJAX
+  fetch('/your-flask-route').then((response) => response.json()).then((data) => {
+      // Assuming the data format is { total: [], positive: [], neutral: [], negative: [] }
+      // Update series data based on fetched data
+      options.series[0].data = data.total;
+      options.series[1].data = data.positive;
+      options.series[2].data = data.neutral;
+      options.series[3].data = data.negative;
 
+      // Add new series for selected categories
+      selectedCategories.forEach((category) => {
+        options.series.push({
+          name: category,
+          type: 'bar',
+          label: labelOption,
+          emphasis: {
+            focus: 'series'
+          },
+          data: [] // Initial empty data
+        });
+      });
+    });
   // Update chart
   myChart.setOption(options);
 }
@@ -379,5 +388,3 @@ window.addEventListener('scroll', () => {
         toTopButton.style.display = 'none';
     }
 });
-
-
