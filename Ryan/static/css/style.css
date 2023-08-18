@@ -1,6 +1,6 @@
 /* Apply a background color to the entire page */
 body {
-    background-color: #f8f9fa; /* Light gray */
+    background-color: #f8f9fa;
     font-family: Oswald;
     font-size: 24px;
 }
@@ -22,15 +22,27 @@ body {
     text-align: center;
     padding: 2px 30px;
     text-decoration: none;
+    position: relative;
+    transition: font-size 0.3s, text-shadow 0.3s;
 }
 
-.topnav a:hover { 
-    color: #d5f632;
-    /* animation: animatedGradient 5s linear infinite; */
+.topnav a::before {
+    content: '';
+    /* ... */
 }
+
+.topnav a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(254, 254, 254, 0.8); /* Add a glow effect */
+}
+
+.topnav a:hover::before {
+    opacity: 1; /* Show the gradient on hover */
+}
+
 
 .jumbotron-fluid {
-    /* background-color: #f8f9fa; */
+    height: 100vh;
     padding: 20px 0; /* Adjust the top and bottom padding as needed */
     padding-bottom: 98px; /* Remove any margin to ensure full width */
 }
