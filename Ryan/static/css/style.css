@@ -2,46 +2,82 @@
 body {
     background-color: #f8f9fa; /* Light gray */
     font-family: Oswald;
-    font-size: 22px;
-    margin: 0;
-    padding: 0;
+    font-size: 24px;
 }
 
 /* Style the navigation bar */
 .topnav {
-    background-color: #8fe38f; 
+    background-color: transparent; 
     overflow: hidden;
     display: flex;
     justify-content: center;
     text-align: center;
+    margin-bottom: 50px;
 }
 
 .topnav a {
     float: left;
     display: block;
-    color: #004500;
+    color: #ffffff;
     text-align: center;
-    padding: 14px 16px;
+    padding: 2px 30px;
     text-decoration: none;
 }
 
-.topnav a:hover {
-    background-color: #73c673; /* Slight change in color on hover */
-    color: #1c573f;
+.topnav a:hover { 
+    color: #d5f632;
+    /* animation: animatedGradient 5s linear infinite; */
 }
 
-/* Style the page header */
-.headerContainer {
-    background-color: #f8f9fa;
-    text-align: center;
-    padding: 80px 0;
+.jumbotron-fluid {
+    /* background-color: #f8f9fa; */
+    padding: 20px 0; /* Adjust the top and bottom padding as needed */
+    padding-bottom: 98px; /* Remove any margin to ensure full width */
+}
+
+.jumbotron-fluid topnav {
+    padding: 100px;
 }
 
 /* Style the dropdown */
 .dropdown {
-    margin-top: 20px;
     text-align: center;
+    font-size: 12px;
+    color:rgba(0, 0, 0, 0.5)
 }
+
+.container h1 {
+    font-size: 52px;
+}
+
+.container h2 {
+    font-size: 22px;
+    margin-bottom: 30px;
+}
+
+.container h6 {
+    font-size: 12px;
+}
+
+/* Style the checkboxes */
+.custom-checkbox {
+    height: 10px;
+    width: 10px;
+    margin-right: 1px;
+    vertical-align: middle;
+    color: rgb(228, 224, 224);
+}
+
+.custom-checkbox-label {
+    padding: 1.2px;
+    color:rgb(0, 0, 0);
+}
+
+.custom-checkbox-label:hover {
+    font-weight: bold; 
+    color: rgb(209, 94, 124);
+}
+
 
 /* Style the panel */
 .panel-primary {
@@ -98,7 +134,7 @@ body {
 #toTop {
     position: fixed;
     bottom: 20px;
-    right: 20px;
+    right: 10px;
 }
 
 .to-top-button {
@@ -108,7 +144,7 @@ body {
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
     padding: 3.2px;
-    border-radius: 50%;
+    border-radius: 100%;
     width: 30px;
     height: 30px;
     transition: background-color 0.3s;
@@ -127,3 +163,22 @@ body {
     /* Adjust styles for smaller screens */
 }
 
+/* Define the animation for the background */
+@keyframes animatedGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Apply the animation to the jumbotron */
+.animated-background {
+    animation: animatedGradient 10s ease infinite;
+    background: linear-gradient(45deg, #6d64a7, #9b5699, #c1658e, #f59187);
+    background-size: 400% 400%;
+}
