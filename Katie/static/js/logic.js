@@ -258,8 +258,8 @@ option = {
   yAxis: {
     type: 'value',
     name: 'Score',
-    min: -200,
-    max: 400,
+    min: -10,
+    max: 250,
     splitArea: {
       show: false
     }

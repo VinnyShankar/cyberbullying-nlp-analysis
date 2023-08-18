@@ -105,7 +105,11 @@ let selectedCategories = [];
 // Define initial options
 let options = {
   xAxis: {
-    data: ["Automobiles"] // Initial empty data
+    data: ["Automobiles"], // Initial empty data
+    axisLabel: {
+      interval: 0, // Display all labels
+      // rotate: 45, // Rotate the labels for better visibility
+      margin: 20}
   },
   legend: {
     data: ['Total', 'Positive', 'Neutral', 'Negative']
@@ -182,6 +186,9 @@ pageSelect.addEventListener('change', () => {
   // Clear selectedCategories array
   selectedCategories = [];
 
+  // Clear checkboxes
+  clearCheckboxes();
+
   // Get selected category from page dropdown
   const selectedCategory = pageSelect.value;
 
@@ -244,26 +251,31 @@ pageSelect.addEventListener('change', () => {
 // Get smaller categories checkboxes
 const smallerCategoriesCheckboxes = document.querySelectorAll('#categories input[type="checkbox"]');
 
-// Handle smaller categories checkboxes change
 smallerCategoriesCheckboxes.forEach((checkbox) => {
   checkbox.addEventListener('change', () => {
     // Get selected side-by-side categories from checkboxes
     const selectedSideBySide = Array.from(smallerCategoriesCheckboxes)
-      .filter(checkbox => checkbox.checked)
-      .map(checkbox => checkbox.value);
+      .filter((checkbox) => checkbox.checked)
+      .map((checkbox) => checkbox.value);
 
     // Get selected main category from main category dropdown
     const selectedMainCategory = pageSelect.value;
+
+    // Limit the number of selected categories to 4, including the main category
+    if (selectedSideBySide.length + 1 > 4) {
+      checkbox.checked = false;
+      return; // Exit the event listener
+    }
 
     // Update chart with selected main and side-by-side categories
     updateChart(selectedMainCategory, selectedSideBySide);
   });
 });
 
+
 // Handle window resize
 window.addEventListener('resize', myChart.resize);
 
-// Define the updateChart function
 function updateChart(mainCategory, sideBySideCategories) {
   // Clear selectedCategories array
   selectedCategories = [];
@@ -279,6 +291,7 @@ function updateChart(mainCategory, sideBySideCategories) {
     {
       name: 'Total',
       type: 'bar',
+      barGap: 0,
       label: labelOption,
       emphasis: {
         focus: 'series'
@@ -311,15 +324,6 @@ function updateChart(mainCategory, sideBySideCategories) {
         focus: 'series'
       },
       data: [] // Initial empty data
-    },
-    {
-      name: mainCategory,
-      type: 'bar',
-      label: labelOption,
-      emphasis: {
-        focus: 'series'
-      },
-      data: [] // Initial empty data
     }
   ];
 
@@ -329,21 +333,47 @@ function updateChart(mainCategory, sideBySideCategories) {
   // Add side-by-side categories to selectedCategories array
   selectedCategories.push(...sideBySideCategories);
 
-  // Add new series for selected categories
-  selectedCategories.forEach((category) => {
-    options.series.push({
-      name: category,
-      type: 'bar',
-      label: labelOption,
-      emphasis: {
-        focus: 'series'
-      },
-      data: [] // Initial empty data
-    });
+  // Limit the number of selected categories to 4, including the main category
+  if (selectedCategories.length > 4) {
+    selectedCategories = selectedCategories.slice(0, 4);
+  }
+
+  // Update the checkboxes based on selected categories
+  smallerCategoriesCheckboxes.forEach((checkbox) => {
+    checkbox.checked = selectedCategories.includes(checkbox.value);
   });
 
+  // Fetch data from Flask route using AJAX
+  fetch('/your-flask-route').then((response) => response.json()).then((data) => {
+      // Assuming the data format is { total: [], positive: [], neutral: [], negative: [] }
+      // Update series data based on fetched data
+      options.series[0].data = data.total;
+      options.series[1].data = data.positive;
+      options.series[2].data = data.neutral;
+      options.series[3].data = data.negative;
+
+      // Add new series for selected categories
+      selectedCategories.forEach((category) => {
+        options.series.push({
+          name: category,
+          type: 'bar',
+          label: labelOption,
+          emphasis: {
+            focus: 'series'
+          },
+          data: [] // Initial empty data
+        });
+      });
+    });
   // Update chart
   myChart.setOption(options);
+}
+
+
+function clearCheckboxes() {
+  smallerCategoriesCheckboxes.forEach(checkbox => {
+    checkbox.checked = false;
+  });
 }
 
 // Get the "To Top" button element
@@ -358,5 +388,3 @@ window.addEventListener('scroll', () => {
         toTopButton.style.display = 'none';
     }
 });
-
-
