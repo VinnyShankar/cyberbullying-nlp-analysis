@@ -26,21 +26,21 @@ function drawBars()
         looper()
         function looper()
         {
-        for (let y of data)
-        {
-            if (y["score"] == 2)
+            for (let y of data)
             {
-            pos += 1
+                if (y["score"] == 2)
+                {
+                    pos += 1
+                }
+                else if (y["score"] == 1)
+                {
+                    neu += 1
+                }
+                else if (y["score"] == 0)
+                {
+                    neg += 1
+                }
             }
-            else if (y["score"] == 1)
-            {
-            neu += 1
-            }
-            else if (y["score"] == 0)
-            {
-            neg += 1
-            }
-        }
         }
         
         tot = pos+neu+neg
@@ -180,7 +180,7 @@ function drawBars()
                     type: 'category',
                     axisTick: { show: true },
                     data: [categ],
-                    axisLabel: {rotate: 45}
+                    // axisLabel: {rotate: 45}
                 }
                 ],
                 yAxis: [
@@ -228,6 +228,10 @@ function drawBars()
                 }
                 ]
             };
+            if (option && typeof option === 'object')
+            {
+                myChart.setOption(option);
+            }
     }
     )
 }
