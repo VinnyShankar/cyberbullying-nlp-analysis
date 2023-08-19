@@ -66,7 +66,6 @@ def barchart():
     result = get_from_mongo().find(query,fields)
 
     return dumps(result)
-
 #################################################
 # Wordcloud
 #################################################
