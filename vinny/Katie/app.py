@@ -124,6 +124,8 @@ def wordcloud():
     # Store visualization to file
     plt.savefig("yt_logo_unigram.png", format="png")
 
+    return dumps(result)
+
 # Completing flask setup
 if __name__ == '__main__':
     app.run(debug=True)
