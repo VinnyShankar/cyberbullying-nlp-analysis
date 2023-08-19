@@ -1,7 +1,7 @@
 #################################################
 # Dependencies
 #################################################
-from flask import Flask, jsonify, render_template
+from flask import Flask, jsonify, render_template, send_file
 from pymongo import MongoClient
 from bson.json_util import dumps
 import numpy as np
@@ -68,47 +68,29 @@ def stackedbars():
     return dumps(result)
 
 #################################################
-# Wordcloud
+# Wordcloud 1
 #################################################
-# @app.route("/api/v1.0/wordcloud")
-# def wordcloud():
-#     query = {}
-#     fields = {"id":0,
-#               "category":1,
-#               "processed_text":1}
 
-#     result = get_from_mongo().find(query,fields)
-#     result_df = pd.DataFrame(result)
+@app.route("/api/v1.0/wordcloud/<category>")
+def wordsss(category):
+    query = {"category":category}
+    fields = {
+        "_id": 0,
+        "category": 1,
+        "processed_text": 1
+    }
+    result = get_from_mongo().find(query,fields)
 
-#     # Initialize Lemmatize
-#     wordnet_lem = WordNetLemmatizer()
+    return dumps(result)
 
-#     # Lemmatize processed text and join everything in a list
-#     result_df['text_lem'] = result_df['processed_text'].apply(wordnet_lem.lemmatize)
-#     all_words_lem = ' '.join([word for word in result_df['text_lem']])
+#################################################
+# Wordcloud 2
+#################################################
 
-#     # Generate a word cloud image
-#     mask = np.array(Image.open("youtube.png"))
-#     stopwords = set(STOPWORDS)
-
-#     wordcloud_yt = WordCloud(height=708,
-#                               width=1024,
-#                               background_color="white",
-#                               mode="RGBA",
-#                               stopwords=stopwords,
-#                               mask=mask).generate(all_words_lem)
-
-#     # Create coloring from the image
-#     image_colors = ImageColorGenerator(mask)
-#     plt.figure(figsize=[20,20])
-#     plt.axis('off')
-#     plt.tight_layout(pad=0)
-#     plt.imshow(wordcloud_yt.recolor(color_func=image_colors), interpolation="bilinear")
-
-#     # Store visualization to file
-#     plt.savefig("yt_logo_unigram.png", format="png")
-
-#     return dumps(result)
+@app.route("/api/v1.0/wordclouds/<category>")
+def wordzzz(category):
+    filename = f"wordcloud_{category}.png"  
+    return send_file(filename, mimetype="image/png")
 
 #################################################
 # Bonus
