@@ -2,7 +2,7 @@ import { drawBars } from "./bars.js"
 import { hBars } from "./hbars.js"
 import { wCloud } from "./words.js"
 
-wCloud()
+// wCloud()
 drawBars()
 hBars()
 
