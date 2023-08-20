@@ -7,52 +7,49 @@ function hBars()
     {
         console.log(data)
              
-        var lpos = 0
-        var lneu = 0
-        var lneg = 0
+        var category_array = []
+        var posArray = []
+        var neuArray = []
+        var negArray = []
 
-        var opos = 0
-        var oneu = 0
-        var oneg = 0
+        for (let x of data)
+        {
+            category_array.push(x["category"])
+        }
+        category_array = [...new Set(category_array)].sort()
+        console.log(category_array)
 
         looper()
         function looper()
         {
-            for (let y of data)
+            for (let x of category_array)
             {
-                if (y["identity"] == "lgbt" && y["score"] == 2)
-                {
-                    lpos += 1
-                }
-                else if (y["identity"] == "lgbt" && y["score"] == 1)
-                {
-                    lneu += 1
-                }
-                else if (y["identity"] == "lgbt" && y["score"] == 0)
-                {
-                    lneg += 1
-                }
-                else if (y["identity"] == "unknown" && y["score"] == 2)
-                {
-                    opos += 1
-                }
-                else if (y["identity"] == "unknown" && y["score"] == 1)
-                {
-                    oneu += 1
-                }
-                else if (y["identity"] == "unknown" && y["score"] == 0)
-                {
-                    oneg += 1
-                }
-            }
-        }
-        
-        console.log(lpos)
-        console.log(lneu)
-        console.log(lneg)
+                var pos = 0
+                var neu = 0
+                var neg = 0
 
-        console.log(opos)
-        console.log(oneu)
-        console.log(oneg)
+                for (let y of data)
+                {
+                    if (y["category"] == x && y["score"] == 2)
+                    {
+                        pos += 1
+                    }
+                    else if (y["category"] == x && y["score"] == 1)
+                    {
+                        neu += 1
+                    }
+                    else if (y["category"] == x && y["score"] == 0)
+                    {
+                        neg += 1
+                    }
+                }
+                posArray.push(pos)
+                neuArray.push(neu)
+                negArray.push(neg)
+            }
+            console.log(posArray)
+            console.log(neuArray)
+            console.log(negArray)
+        }
     })
 }
