@@ -35,6 +35,6 @@ This is the best damn team to ever do a group project. :tada:
 3. Created and optimized a machine learning model to process the comments and drop spam
 4. Used the [roberta pre-trained model](https://huggingface.co/roberta-base) to label each comment as neutral (0), negative (1), or positive (2)
 5. Saved the cleaned and labeled comments in a JSON file and populated a local MongoDB database with the file
-6. Used the cleaned and labeled comments to create and optimize four additional supervised learning models [Source](https://medium.com/@jays34955finding-and-optimizing-a-good-text-classification-model-aea96d93d2fc)
+6. Used the cleaned and labeled comments to create and optimize four additional supervised learning models [Source](https://medium.com/@jays34955/finding-and-optimizing-a-good-text-classification-model-aea96d93d2fc)
 7. Built a dashboard with a Python Flask API backend and JavaScript/HTML/CSS frontend
 8. Used the MongoDB database to populate the dashboard
