@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cyberbullying Analysis Using Natural Language Processing</title>
+
+        <!-- Leaflet CSS -->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+            integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+            crossorigin="" />
+        
+        <!-- W3Schools CSS -->
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.16/css/bootstrap-multiselect.css">
+
+        <!-- Our CSS -->
+        <link rel="stylesheet" href="../static/css/style.css">
+
+        <!-- Fonts -->
+        <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet'>
+        <script src="http://d3js.org/d3.v5.min.js"></script>
+    </head>
+    <body>
+        
+        <div class="w3-container-fluid">
+            <!--Navigation bar-->
+            <div style="background: url(https://cdn.pixabay.com/photo/2023/02/14/23/56/sunset-7790621_1280.jpg)" class="jumbotron-fluid bg-cover text-white">
+            <!--Page Header-->
+                <div class="topnav">
+                    <a href="#stacked-bar">All Categories</a>
+                    <a href="#selCategory">Individual Category</a>
+                    <a href="#grams">LGBT+ Creators</a>
+                    <a href="https://public.tableau.com/views/SentimentTableau_16925687052100/BonusTableauVisualizationStory?:language=en-US&:display_count=n&:origin=viz_share_link">Tableau</a>
+                    <a href="http://127.0.0.1:5000/api/v1.0/bonus">Bonus</a>
+                    <a href="http://127.0.0.1:5000/api/v1.0/bonus2">Bonus 2</a>
+                </div>
+                <div class="container py-5 text-center" id="home">
+                    <h1 class="display-3">Natural Language Processing</h1>
+                    <h2 class="display-6">Sentiment Analysis of Youtube Comments</h2>
+                </div>
+                    
+            </div>    
+            
+            <!-- Div for Stacked Bar -->
+            <div class="col-md-12">
+                <div id="stacked-bar">
+                </div>
+                <script src="https://fastly.jsdelivr.net/npm/echarts-simple-transform/dist/ecSimpleTransform.min.js"></script>
+            </div>
+            <hr>
+            <!-- Dropdown Menu by Category-->
+            <div class="dropdown">
+                <select id="selCategory">
+                    <option value="Automobiles">Automobiles</option>
+                    <option value="Comedy">Comedy</option>
+                    <option value="Education">Education</option>
+                    <option value="Entertainment">Entertainment</option>
+                    <option value="Film">Film</option>
+                    <option value="Gaming">Gaming</option>
+                    <option value="Howto">How To</option>
+                    <option value="Music">Music</option>
+                    <option value="News and Politics">News and Politics</option>
+                    <option value="People">People</option>
+                    <option value="Pets and Animals">Pets and Animals</option>
+                    <option value="Problematic">Problematic</option>
+                    <option value="Science and Technology">Science and Technology</option>
+                    <option value="Shows">Shows</option>
+                    <option value="Sports">Sports</option>
+                    <option value="Travel">Travel</option>
+                </select>
+            </div>
+            <!-- Div for Wordcloud -->
+            <div class="row" id="bar-cloud">
+                <div id="wordCloud" class="col-md-6">
+                    <div class="box">
+                        <h2>Wordcloud</h2>
+                        <h6>Most commented words within the selected category</h6>
+                        <img id="blahblah" src="         " alt="Wordcloud"> <!--FILL IN IMAGE PATH-->
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div id="chart-container"></div>
+                    <script src="https://fastly.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+                </div>
+            </div>
+            <hr>
+            <!-- LGBT+ Charts -->
+            <div class="row" id="grams">
+                <div class="col-md-6">
+                    <div class="box">
+                        <h3>Wordcloud for LGBT+ Creators</h3>
+                        <img id="lgbtCloud" src="         " alt="Wordcloud"> <!--FILL IN IMAGE PATH-->
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="box">
+                        <h3>Positive Bigrams for LGBT+ Creators</h3>
+                        <img id="lgbtPositive" src="         " alt="Wordcloud"> <!-- FILL IN IMAGE PATH -->
+                        <h3>Negative Bigrams for LGBT+ Creators</h3>
+                        <img id="lgbtNegative" src="         " alt="Wordcloud"> <!--FILL IN IMAGE PATH-->
+                    </div>
+                </div>
+            </div>
+        <br>
+        <footer class="w3-container w3-theme-dark w3-padding-16">
+            <h3>Thank You for Visiting!</h3>
+            <div id="toTop" class="to-top-button">
+                <a class="w3-text-white" href="#home"><span class="w3-xlarge">
+                <i class="fa fa-chevron-circle-up"></i></span></a>
+            </div>
+        </footer>
+        <script type="module" src="../static/js/logic.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.16/js/bootstrap-multiselect.min.js"></script>
+    </body>
+</html>
