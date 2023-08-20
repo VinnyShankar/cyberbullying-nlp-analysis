@@ -20,7 +20,6 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.16/css/bootstrap-multiselect.css">
 
         <!-- Our CSS -->
-        <!-- <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/style.css') }}"> -->
         <link rel="stylesheet" href="../static/css/style.css">
 
         <!-- Fonts -->
@@ -31,78 +30,51 @@
         
         <div class="w3-container-fluid">
             <!--Navigation bar-->
-            <!-- <div class="topnav animated-background">
-                <a href="#home">Home</a>
-                <a href="#wordCloud">Wordcloud</a>
-                <a href="#sentiTab">Sentiment Analysis</a>
-                <a href="#grams">Bigrams and Trigrams</a>
-            </div> -->
             <div style="background: url(https://cdn.pixabay.com/photo/2023/02/14/23/56/sunset-7790621_1280.jpg)" class="jumbotron-fluid bg-cover text-white">
             <!--Page Header-->
                 <div class="topnav">
-                    <a href="#home">Home</a>
                     <a href="#stacked-bar">All Categories</a>
-                    <a href="#wordCloud">Individual Category</a>
-                    <!-- <a href="#sentiTab">Sentiment Analysis</a> -->
-                    <a href="#grams">Bigrams and Trigrams</a>
+                    <a href="#selCategory">Individual Category</a>
+                    <a href="#grams">LGBT+ Creators</a>
+                    <a href="https://public.tableau.com/views/SentimentTableau_16925687052100/BonusTableauVisualizationStory?:language=en-US&:display_count=n&:origin=viz_share_link">Tableau</a>
+                    <a href="http://127.0.0.1:5000/api/v1.0/bonus">Bonus</a>
+                    <a href="http://127.0.0.1:5000/api/v1.0/bonus2">Bonus 2</a>
                 </div>
                 <div class="container py-5 text-center" id="home">
                     <h1 class="display-3">Natural Language Processing</h1>
-                    <h2 class="display-6">Cyberbullying Analysis of Youtube Comments</h2>
-                    <h5 class="lh-base">Use the Dropdown to select your prefered category</h5>
-                <!-- </div> -->
-                    
-                <!-- Dropdown Menu by Category-->
-                    <div class="dropdown">
-                        <select id="selCategory">
-                            <option value="Automobiles">Automobiles</option>
-                            <option value="Comedy">Comedy</option>
-                            <option value="Education">Education</option>
-                            <option value="Entertainment">Entertainment</option>
-                            <option value="Film">Film</option>
-                            <option value="Gaming">Gaming</option>
-                            <option value="Howto">How To</option>
-                            <option value="Music">Music</option>
-                            <option value="News and Politics">News and Politics</option>
-                            <option value="People">People</option>
-                            <option value="Pets and Animals">Pets and Animals</option>
-                            <option value="Problematic">Problematic</option>
-                            <option value="Science and Technology">Science and Technology</option>
-                            <option value="Shows">Shows</option>
-                            <option value="Sports">Sports</option>
-                            <option value="Travel">Travel</option>
-                        </select>
-                    </div>
+                    <h2 class="display-6">Sentiment Analysis of Youtube Comments</h2>
                 </div>
                     
             </div>    
             
-            
-            <!-- Creator Breakdown -->
-            <!-- <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">Summary</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">Category Breakdown</h6>
-                  <p id="creator-data" class="card-text">This will be where a breakdown of the category will be, such as creators within and overall score</p> <!--PULL DATA TO creator-data ID-->
-                <!-- </div>
-            </div> -->
-            
-            
-            <!-- <div class="panel panel-primary">
-                <div class="panel-heading">
-                <h2 class="panel-title">Summary</h2>
-                </div>
-                <div id="creator-data" class="panel-body"></div> 
-            </div> -->
-
             <!-- Div for Stacked Bar -->
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <div id="stacked-bar">
-                    <!-- <h2>Comment Breakdown for All Categories</h2> -->
                 </div>
                 <script src="https://fastly.jsdelivr.net/npm/echarts-simple-transform/dist/ecSimpleTransform.min.js"></script>
             </div>
             <hr>
+            <!-- Dropdown Menu by Category-->
+            <div class="dropdown">
+                <select id="selCategory">
+                    <option value="Automobiles">Automobiles</option>
+                    <option value="Comedy">Comedy</option>
+                    <option value="Education">Education</option>
+                    <option value="Entertainment">Entertainment</option>
+                    <option value="Film">Film</option>
+                    <option value="Gaming">Gaming</option>
+                    <option value="Howto">How To</option>
+                    <option value="Music">Music</option>
+                    <option value="News and Politics">News and Politics</option>
+                    <option value="People">People</option>
+                    <option value="Pets and Animals">Pets and Animals</option>
+                    <option value="Problematic">Problematic</option>
+                    <option value="Science and Technology">Science and Technology</option>
+                    <option value="Shows">Shows</option>
+                    <option value="Sports">Sports</option>
+                    <option value="Travel">Travel</option>
+                </select>
+            </div>
             <!-- Div for Wordcloud -->
             <div class="row" id="bar-cloud">
                 <div id="wordCloud" class="col-md-6">
@@ -118,42 +90,23 @@
                 </div>
             </div>
             <hr>
-            <!-- Div for Sentiment Analysis Table -->
-            <!-- <div> -->
-                <!-- <div id="sentiTab" class="col-md-12"> -->
-                    <!-- <div class="dropdown" id="categories">
-                        <label class="custom-checkbox-label"><input type="checkbox" value="Automobiles" class="custom-checkbox">Automobiles</label>
-                        <label class="custom-checkbox-label"><input type="checkbox" value="Comedy" class="custom-checkbox">Comedy</label>
-                        <label class="custom-checkbox-label"><input type="checkbox" value="Entertainment" class="custom-checkbox">Entertainment</label>
-                        <label class="custom-checkbox-label"><input type="checkbox" value="Film" class="custom-checkbox">Film</label>
-                        <label class="custom-checkbox-label"><input type="checkbox" value="News and Politics" class="custom-checkbox">News and Politics</label>
-                        <label class="custom-checkbox-label"><input type="checkbox" value="Gaming" class="custom-checkbox">Gaming</label>
-                        <label class="custom-checkbox-label"><input type="checkbox" value="Science and Technology" class="custom-checkbox">Science and Technology</label>
-                        <label class="custom-checkbox-label"><input type="checkbox" value="Shows" class="custom-checkbox">Shows</label>
-                        <label class="custom-checkbox-label"><input type="checkbox" value="Sports" class="custom-checkbox">Sports</label>
-                        <label class="custom-checkbox-label"><input type="checkbox" value="Pets and Animals" class="custom-checkbox">Pets and Animals</label>
-                        <label class="custom-checkbox-label"><input type="checkbox" value="Music" class="custom-checkbox">Music</label>
-                        <label class="custom-checkbox-label"><input type="checkbox" value="Travel" class="custom-checkbox">Travel</label>
-                        <label class="custom-checkbox-label"><input type="checkbox" value="Problematic" class="custom-checkbox">Problematic</label>
-                        <label class="custom-checkbox-label"><input type="checkbox" value="LGBTQ+" class="custom-checkbox">LGBTQ+</label>
-                    </div> -->
-                    <!-- <div id="chart-container"></div>
-                    <script src="https://fastly.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>    FINISH DEVELOPING TABLE FRAMEWORK AND ASK FOR SPECIFIC COLUMNS -->
-                <!-- </div> -->
-            <!-- </div> -->
-            <!-- <hr> -->
-            <!-- Bigram and Trigram Charts -->
+            <!-- LGBT+ Charts -->
             <div class="row" id="grams">
                 <div class="col-md-6">
-                    <h2>Bigram Analysis</h2>
-                    <img src="         " alt="Bigram Analysis"> <!--FILL IN IMAGE PATH-->
+                    <div class="box">
+                        <h3>Wordcloud for LGBT+ Creators</h3>
+                        <img id="lgbtCloud" src="         " alt="Wordcloud"> <!--FILL IN IMAGE PATH-->
+                    </div>
                 </div>
                 <div class="col-md-6">
-                    <h2>Trigram Analysis</h2>
-                    <img src="         " alt="Trigram Analysis"> <!--FILL IN IMAGE PATH-->
+                    <div class="box">
+                        <h3>Positive Bigrams for LGBT+ Creators</h3>
+                        <img id="lgbtPositive" src="         " alt="Wordcloud"> <!-- FILL IN IMAGE PATH -->
+                        <h3>Negative Bigrams for LGBT+ Creators</h3>
+                        <img id="lgbtNegative" src="         " alt="Wordcloud"> <!--FILL IN IMAGE PATH-->
+                    </div>
                 </div>
             </div>
-        </div>
         <br>
         <footer class="w3-container w3-theme-dark w3-padding-16">
             <h3>Thank You for Visiting!</h3>
@@ -163,7 +116,6 @@
             </div>
         </footer>
         <script type="module" src="../static/js/logic.js"></script>
-        <!-- <script src="https://unpkg.com/d3@5.15.0/dist/d3.min.js"></script> -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.16/js/bootstrap-multiselect.min.js"></script>
     </body>

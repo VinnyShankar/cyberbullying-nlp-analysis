@@ -1,10 +1,16 @@
 import { drawBars } from "./bars.js"
 import { hBars } from "./hbars.js"
 import { wCloud } from "./words.js"
+import { lgbtCloud } from "./words.js"
+import { lgbtPos } from "./grams.js"
+import { lgbtNeg } from "./grams.js"
 
 wCloud()
 drawBars()
 hBars()
+lgbtCloud()
+lgbtPos()
+lgbtNeg()
 
 $("#selCategory").on("change", function(){
   wCloud()
