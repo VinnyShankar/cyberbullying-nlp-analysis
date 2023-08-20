@@ -3,26 +3,15 @@ export {drawBars}
 function drawBars()
 {
     var categ = d3.select("#selCategory").node().value
-    // console.log(categ)
 
     d3.json(`/api/v1.0/barchart/${categ}`)
     .then(data =>
-    {
-        // console.log(data)
-             
+    {             
         var pos = 0
         var neu = 0
         var neg = 0
         var tot = 0
-        // category_array = []
 
-        // for (let x of data)
-        // {
-        //     category_array.push(x["category"])
-        // }
-
-        // category_array = [...new Set(category_array)].sort()
-        // console.log(category_array)
         looper()
         function looper()
         {
@@ -45,13 +34,6 @@ function drawBars()
         
         tot = pos+neu+neg
         
-        // console.log(tot)
-        // console.log(pos)
-        // console.log(neu)
-        // console.log(neg)
-
-        // var index = category_array.indexOf('Music');
-        // console.log(index)
 
         var dom = document.getElementById('chart-container');
         var myChart = echarts.init(dom, 'dark', {
@@ -193,7 +175,6 @@ function drawBars()
                     type: 'category',
                     axisTick: { show: true },
                     data: [categ],
-                    // axisLabel: {rotate: 45}
                 }
                 ],
                 yAxis: [
