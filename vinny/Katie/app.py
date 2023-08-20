@@ -1,7 +1,7 @@
 #################################################
 # Dependencies
 #################################################
-from flask import Flask, jsonify, render_template, send_file
+from flask import Flask, jsonify, render_template, send_file, Response
 from pymongo import MongoClient
 from bson.json_util import dumps
 import numpy as np
@@ -10,7 +10,8 @@ from wordcloud import WordCloud, STOPWORDS, ImageColorGenerator
 import matplotlib.pyplot as plt
 from nltk.stem import WordNetLemmatizer
 import pandas as pd
-
+from io import BytesIO
+from flask_caching import Cache
 
 #################################################
 # Connect to MongoDB
@@ -25,6 +26,9 @@ def get_from_mongo():
 # Flask Setup
 #################################################
 app = Flask(__name__)
+
+cache = Cache(app, config={'CACHE_TYPE': 'SimpleCache'})
+cache.init_app(app)
 
 #################################################
 # Render HTML
@@ -60,7 +64,7 @@ def stackedbars():
     query = {}
     fields = {
         "_id": 0,
-        "identity": 1,
+        "category": 1,
         "score": 1
     }
     result = get_from_mongo().find(query,fields)
@@ -72,16 +76,46 @@ def stackedbars():
 #################################################
 
 @app.route("/api/v1.0/wordcloud/<category>")
+@cache.cached(timeout=300)  # Cache for 5 minutes
 def wordsss(category):
     query = {"category":category}
     fields = {
-        "_id": 0,
-        "category": 1,
-        "processed_text": 1
+    "_id": 0,
+    "processed_text": 1
     }
     result = get_from_mongo().find(query,fields)
+    list_cur = list(result)
+    df = pd.DataFrame(list_cur)
+    wordnet_lem = WordNetLemmatizer()
 
-    return dumps(result)
+    # Lemmatize processed text and join everything in a list
+    df['text_lem'] = df['processed_text'].apply(wordnet_lem.lemmatize)
+    all_words_lem = ' '.join([word for word in df['text_lem']])
+
+    # Generate a word cloud image
+    mask = np.array(Image.open("youtube.png"))
+    stopwords = set(STOPWORDS)
+
+    wordcloud_yt = WordCloud(height=708,
+                                width=1024,
+                                background_color="white",
+                                mode="RGBA",
+                                stopwords=stopwords,
+                                mask=mask).generate(all_words_lem)
+
+    # Create coloring from the image
+    image_colors = ImageColorGenerator(mask)
+    plt.figure(figsize=[20,20])
+    plt.axis('off')
+    plt.tight_layout(pad=0)
+    plt.imshow(wordcloud_yt.recolor(color_func=image_colors), interpolation="bilinear")
+
+    # Convert plot to PNG image
+    image_stream = BytesIO()
+    plt.savefig(image_stream, format="png")
+    image_stream.seek(0)
+
+    return Response(image_stream, content_type="image/png")
 
 #################################################
 # Wordcloud 2
@@ -90,6 +124,15 @@ def wordsss(category):
 @app.route("/api/v1.0/wordclouds/<category>")
 def wordzzz(category):
     filename = f"wordcloud_{category}.png"  
+    return send_file(filename, mimetype="image/png")
+
+#################################################
+# Bigrams
+#################################################
+
+@app.route("/api/v1.0/bigrams")
+def bigram():
+    filename = f"bigram.png"  
     return send_file(filename, mimetype="image/png")
 
 #################################################

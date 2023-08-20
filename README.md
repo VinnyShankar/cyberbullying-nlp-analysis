@@ -3,7 +3,7 @@
 ## Authors
 Jenna Barkley, Ryan Beebe, Hany Dief, Katie Djahan, Jed Miller, Vinny Shankar
 ## Note
-This is the best damn team to ever do a group project.
+This is the best damn team to ever do a group project. :tada:
 ## Dependencies
 - This project requires a Python environment (version 3.7 and above)
 - Run the `requirements.txt` file to install the necessary python packages
