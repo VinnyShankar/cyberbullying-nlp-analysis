@@ -46,11 +46,28 @@ def welcome():
     # Connecting to index.html static file
     return render_template("index.html")
 
-
-
+#################################################
 # Bar Chart API Route
+#################################################
+
+@app.route("/api/v1.0/barchart/<category>")
+def barchart(category):
+    query = {"category":category}
+    fields = {
+        "_id": 0,
+        "category": 1,
+        "score": 1
+    }
+    result = get_from_mongo().find(query,fields)
+
+    return dumps(result)
+
+
+#################################################
+# Bar Chart API Route
+#################################################
 @app.route("/api/v1.0/barchart")
-def barchart():
+def barchartstatic():
     query = get_from_mongo().aggregate([{ "$group": { "_id": { "category": "$category", "score": "$score" },
              "count": { "$sum": 1 } } }])
     
@@ -65,6 +82,27 @@ def barchart():
 
     return dumps(result)
 
+
+
+# Box Plot API Route
+# @app.route("/api/v1.0/boxplot")
+# def boxplot():
+#     query = get_from_mongo().aggregate([
+#         { "$group": {"_id": "$score", "count": {"$group": {"_id": {"category": "$category"}} "$sum": 1}}}
+#         ])
+#     # ([{ "$group": { "_id": { "score": "$score", "category": "$category" },
+#     #          "count": { "$sum": 1 } } }])
+    
+#     # query2 = get_from_mongo().aggregate([{ "$group": {"_id": "$category", "count": { '$sum': 1 }}}])
+
+#     fields = {
+#         "_id": 0,
+#         "category": 1,
+#         "score": 1
+#     }
+#     result = (query,fields)
+
+#     return dumps(result)
 
 
 
