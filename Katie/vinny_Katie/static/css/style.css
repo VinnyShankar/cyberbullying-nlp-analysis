@@ -22,11 +22,13 @@ body {
   text-align: center;
   padding: 2px 30px;
   text-decoration: none;
+  position: relative;
+  transition: font-size 0.3s, text-shadow 0.3s;
 }
 
 .topnav a:hover { 
-  color: #d5f632;
-  /* animation: animatedGradient 5s linear infinite; */
+  color: #ffffff;
+  text-shadow: 0 0 8px rgba(254, 254, 254, 0.8); /* Add a glow effect */
 }
 
 .jumbotron-fluid {
@@ -58,26 +60,6 @@ body {
 .container h6 {
   font-size: 12px;
 }
-
-/* Style the checkboxes */
-/* .custom-checkbox {
-  height: 10px;
-  width: 10px;
-  margin-right: 1px;
-  vertical-align: middle;
-  color: rgb(228, 224, 224);
-}
-
-.custom-checkbox-label {
-  padding: 1.2px;
-  color:rgb(0, 0, 0);
-}
-
-.custom-checkbox-label:hover {
-  font-weight: bold; 
-  color: rgb(209, 94, 124);
-} */
-
 
 /* Style the panel */
 .panel-primary {
@@ -162,6 +144,7 @@ body {
   position: fixed;
   bottom: 20px;
   right: 10px;
+  cursor: pointer; /* Add this line */
 }
 
 .to-top-button {
@@ -177,12 +160,12 @@ body {
   transition: background-color 0.3s;
   text-align: center;
   line-height: 20px;
+  cursor: pointer; /* Add this line */
 }
 
 .to-top-button:hover {
   background-color: rgba(0, 0, 0, 0.8);
 }
-
 
 
 /* Responsive media queries */
