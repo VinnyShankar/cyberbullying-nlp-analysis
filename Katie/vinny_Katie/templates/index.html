@@ -42,18 +42,18 @@
                 <div class="topnav">
                     <a href="#home">Home</a>
                     <a href="#stacked-bar">All Categories</a>
-                    <a href="#wordCloud">Individual Category</a>
+                    <a href="#selCategory">Individual Category</a>
                     <!-- <a href="#sentiTab">Sentiment Analysis</a> -->
                     <a href="#grams">Bigrams and Trigrams</a>
                 </div>
                 <div class="container py-5 text-center" id="home">
                     <h1 class="display-3">Natural Language Processing</h1>
                     <h2 class="display-6">Cyberbullying Analysis of Youtube Comments</h2>
-                    <h5 class="lh-base">Use the Dropdown to select your prefered category</h5>
+                    <!-- <h5 class="lh-base">Use the Dropdown to select your prefered category</h5> -->
                 <!-- </div> -->
                     
                 <!-- Dropdown Menu by Category-->
-                    <div class="dropdown">
+                    <!-- <div class="dropdown">
                         <select id="selCategory">
                             <option value="Automobiles">Automobiles</option>
                             <option value="Comedy">Comedy</option>
@@ -72,7 +72,7 @@
                             <option value="Sports">Sports</option>
                             <option value="Travel">Travel</option>
                         </select>
-                    </div>
+                    </div> -->
                 </div>
                     
             </div>    
@@ -103,6 +103,27 @@
                 <script src="https://fastly.jsdelivr.net/npm/echarts-simple-transform/dist/ecSimpleTransform.min.js"></script>
             </div>
             <hr>
+            <!-- Dropdown Menu by Category-->
+            <div class="dropdown">
+                <select id="selCategory">
+                    <option value="Automobiles">Automobiles</option>
+                    <option value="Comedy">Comedy</option>
+                    <option value="Education">Education</option>
+                    <option value="Entertainment">Entertainment</option>
+                    <option value="Film">Film</option>
+                    <option value="Gaming">Gaming</option>
+                    <option value="Howto">How To</option>
+                    <option value="Music">Music</option>
+                    <option value="News and Politics">News and Politics</option>
+                    <option value="People">People</option>
+                    <option value="Pets and Animals">Pets and Animals</option>
+                    <option value="Problematic">Problematic</option>
+                    <option value="Science and Technology">Science and Technology</option>
+                    <option value="Shows">Shows</option>
+                    <option value="Sports">Sports</option>
+                    <option value="Travel">Travel</option>
+                </select>
+            </div>
             <!-- Div for Wordcloud -->
             <div class="row" id="bar-cloud">
                 <div id="wordCloud" class="col-md-6">
