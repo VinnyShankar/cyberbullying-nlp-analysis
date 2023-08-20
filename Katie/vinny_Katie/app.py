@@ -1,15 +1,15 @@
 #################################################
 # Dependencies
 #################################################
-from flask import Flask, jsonify, render_template, send_file
+from flask import Flask, render_template, send_file
 from pymongo import MongoClient
 from bson.json_util import dumps
-import numpy as np
-from PIL import Image
-from wordcloud import WordCloud, STOPWORDS, ImageColorGenerator
-import matplotlib.pyplot as plt
-from nltk.stem import WordNetLemmatizer
-import pandas as pd
+# import numpy as np
+# from PIL import Image
+# from wordcloud import WordCloud, STOPWORDS, ImageColorGenerator
+# import matplotlib.pyplot as plt
+# from nltk.stem import WordNetLemmatizer
+# import pandas as pd
 
 
 #################################################
