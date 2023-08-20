@@ -104,9 +104,10 @@ body {
 
 /* Add your additional CSS rules here */
 #chart-container {
+  background-color: #100c2a;
   position: relative;
-  height: 100vh;
-  width: 90vh;
+  height: 104vh;
+  /* width: 90vh; */
   overflow: hidden;
   padding: 20px;
   margin: 20px;
