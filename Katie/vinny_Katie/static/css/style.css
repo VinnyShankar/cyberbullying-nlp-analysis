@@ -1,6 +1,6 @@
 /* Apply a background color to the entire page */
 body {
-  background-color: #595572; /* Light gray */
+  background-color: #595572; 
   font-family: Oswald;
   font-size: 24px;
 }
@@ -81,26 +81,29 @@ body {
   border-radius: 5px;
 }
 
-/* Style the images */
-.box img {
+/* Style the Bigram and Trigram sections */
+img {
+  display: block;
   max-width: 100%;
   height: auto;
 }
 
-/* Style the Bigram and Trigram sections */
 #grams {
   display: flex;
   justify-content: space-between;
   margin-top: 40px;
+  width: 100%;
 }
 
-#grams .col-md-6 {
-  width: 48%; /* Adjust as needed */
+#grams .row {
+  width: 100%;
 }
+
 
 #bar-cloud .col-md-6 {
-  width: 48%; /* Adjust as needed */
+  width: 28%; /* Adjust as needed */
 }
+
 
 /* Add your additional CSS rules here */
 #chart-container {
@@ -115,16 +118,16 @@ body {
   border-radius: 5px;
 }
 
-/* #wordCloud .box {
+#wordCloud .box {
   position: relative;
   height: 120vh;
-  width: 120vh;
+  width: 90vh;
   overflow: hidden;
   padding: 20px;
   margin: 20px;
   border: 1px solid #e2e3e5;
   border-radius: 5px;
-} */
+}
 
 #stacked-bar {
   position: relative;

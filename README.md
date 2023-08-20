@@ -1,7 +1,7 @@
 # Machine Learning-Based Sentiment Analysis of YouTube Comments
 
 ## Authors
-Jenna Barkley, Ryan Beebe, Hany Dief, Katie Djahan, Jed Miller, Vinny Shankar
+Jenna Barkley, Ryan Beebe, Hany Dief, Katie Djahan, Jesus Jiménez, Jed Miller, Vinny Shankar
 ## Note
 This is the best damn team to ever do a group project. :tada:
 ## Dependencies
