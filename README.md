@@ -38,3 +38,26 @@ This is the best damn team to ever do a group project. :tada:
 6. Used the cleaned and labeled comments to create and optimize four additional supervised learning models [Source](https://medium.com/@jays34955/finding-and-optimizing-a-good-text-classification-model-aea96d93d2fc)
 7. Built a dashboard with a Python Flask API backend and JavaScript/HTML/CSS frontend
 8. Used the MongoDB database to populate the dashboard
+## Sample Visuals
+
+<img src="Dashboard/Img/all_comments_wordcloud.png" width="700" height="320">
+
+- This is an example of one of the wordclouds generated during this project. This wordcloud shows the most commonly used words in our entire database. (N-gram and Wordcloud coding helping from Clément Delteil). Link to notebook: [Link](Dashboard/wcloud.ipynb)<br><br>
+
+<img src="Dashboard/Img/negative_lgbt.png" width="700" height="320">
+
+- This plot shows the 20 most common bigrams found in comments that were:
+    - From channels that publically identify themselves as LGBT
+    - And our pre-trained RoBERTa model identified as "negative"
+    - Link to notebook: [Link](Dashboard/bigrams.ipynb)<br><br>
+
+<img src="Dashboard/Img/positive_lgbt.png" width="700" height="320">
+
+- This plot shows the 20 most common bigrams found in comments that were:
+    - From channels that publically identify themselves as LGBT
+    - And our pre-trained RoBERTa model identified as "positive"<br><br>
+
+<img src="Dashboard/Img/output.png" width="700" height="320">
+
+- Machine Learning Model Accuracy for each of the four models used during the post-RoBERTa-label optimization
+    - Link to notebook: [Link](Machine_Learning/post_label_optimization.ipynb)<br><br>
