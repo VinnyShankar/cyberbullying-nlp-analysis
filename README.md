@@ -31,13 +31,15 @@ This is the best damn team to ever do a group project. :tada:
 - Run the `app.py` file in the Dashboard folder using the command `python app.py`
 ## Activity Summary
 1. Created a list of YouTube videos in a CSV file
-2. Harvested comments for the videos through the YouTube API
-3. Created and optimized a machine learning model to drop spam and process the comments
-4. Used the [roberta pre-trained model](https://huggingface.co/roberta-base) to label each comment as neutral (0), negative (1), or positive (2)
-5. Saved the cleaned and labeled comments in a JSON file and populated a local MongoDB database with the file
-6. Used the cleaned and labeled comments to create and optimize four additional supervised learning models [Source](https://medium.com/@jays34955/finding-and-optimizing-a-good-text-classification-model-aea96d93d2fc)
-7. Built a dashboard with a Python Flask API backend and JavaScript/HTML/CSS frontend
-8. Used the MongoDB database to populate the dashboard
+2. Harvested comments for the videos through the YouTube API (Sample Notebook of API Fetch: [Link](Archive/vinny/large_channels_data_fetch.ipynb))
+3. Created and optimized a machine learning model to drop spam and process the comments (Notebook Link: [Link](Machine_Learning/data_stretch_drop_spam.ipynb))
+4. Used the [roberta pre-trained model](https://huggingface.co/roberta-base) to label each comment as neutral (0), negative (1), or positive (2) (Notebook Link: [Link](Machine_Learning/big_comments_roberta.ipynb))
+5. Saved the cleaned and labeled comments in a JSON file
+6. The file was over 100MB in size, so the team took a random sample of 45% of data and saved it in a separate JSON
+7. Populated a local MongoDB database with the 45% file (Python Script Link: [Link](Dashboard/database.py))
+8. Used the cleaned and labeled comments to create and optimize four additional supervised learning models [Source](https://medium.com/@jays34955/finding-and-optimizing-a-good-text-classification-model-aea96d93d2fc) (Notebook Link: [Link](Machine_Learning/post_label_optimization.ipynb))
+9. Built a dashboard with a Python Flask API backend and JavaScript/HTML/CSS frontend
+10. Used the MongoDB database to populate the dashboard
 ## Sample Visuals
 
 <img src="Dashboard/Img/all_comments_wordcloud.png" width="700" height="700">
