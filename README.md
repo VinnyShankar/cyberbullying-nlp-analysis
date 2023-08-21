@@ -39,7 +39,8 @@ This is the best damn team to ever do a group project. :tada:
 7. Populated a local MongoDB database with the 45% file (Python Script Link: [Link](Dashboard/database.py))
 8. Used the cleaned and labeled comments to create and optimize four additional supervised learning models [Source](https://medium.com/@jays34955/finding-and-optimizing-a-good-text-classification-model-aea96d93d2fc) (Notebook Link: [Link](Machine_Learning/post_label_optimization.ipynb))
 9. Built a dashboard with a Python Flask API backend and JavaScript/HTML/CSS frontend
-10. Used the MongoDB database to populate the dashboard
+10. Used the MongoDB database to populate the dashboard visualizations
+11. Built a second dashboard using Tableau (Tableau Public Link: [Link](https://public.tableau.com/app/profile/hany.dief/viz/SentimentTableau_16925687052100/BonusTableauVisualizationStory))
 ## Sample Visuals
 
 <img src="Dashboard/Img/all_comments_wordcloud.png" width="700" height="700">
