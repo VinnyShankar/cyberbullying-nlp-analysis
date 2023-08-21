@@ -64,3 +64,7 @@ This is the best damn team to ever do a group project. :tada:
 
 - Machine Learning Model Accuracy for each of the four models used during the post-RoBERTa-label optimization
     - Link to notebook: [Link](Machine_Learning/post_label_optimization.ipynb)<br><br>
+## Code References
+Webb, G.I. (2011). Naïve Bayes. In: Sammut, C., Webb, G.I. (eds) Encyclopedia of Machine Learning. Springer, Boston, MA. https://doi.org/10.1007/978-0-387-30164-8_576<br><br>
+Bird, Steven, Edward Loper and Ewan Klein (2009), Natural Language Processing with Python (NLTK). O’Reilly Media Inc.<br><br>
+Cortes, C. & Vapnik, V., 1995. Support-vector networks. Machine learning, 20(3), pp.273–297.
