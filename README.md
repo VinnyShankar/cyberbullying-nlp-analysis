@@ -5,8 +5,12 @@ Jenna Barkley, Ryan Beebe, Hany Dief, Katie Djahan, Jesús Jiménez, Jed Miller,
 ## Note
 This is the best damn team to ever do a group project. :tada:
 ## Dependencies
-- This project requires a Python environment (version 3.7 and above)
-- Run the `requirements.txt` file to install the necessary python packages
+- The dashboard requires a Python environment (version 3.7 and above)
+- The following packages are required to populate the database and launch the HTML dashboard
+    - `pip install flask`
+    - `pip install pymongo`
+    - `pip install bson`
+    - `pip install pandas`
 ## Database Setup
 - This project requires a MongoDB database, command line tools, and the MongoDB Compass App.
 - Install pymongo to the development environment by activating the environment and running the command `pip install pymongo` in a terminal.
